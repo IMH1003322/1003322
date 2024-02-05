@@ -1,45 +1,33 @@
-import java.util.Scanner;
-
 public class ques3 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter the size of the array: ");
-        int sizeOfArray = scanner.nextInt();
-
-        int[] arr = new int[sizeOfArray];
-
-        System.out.print("Enter the total number of elements in the array: ");
-        int totalElement = scanner.nextInt();
-
-        System.out.println("Enter elements for the array ");
-        for (int i = 0; i < totalElement; i++) {
-            System.out.print("Enter element " + (i + 1) + ": ");
-            arr[i] = scanner.nextInt();
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter length of the array:");
+        int n =sc.nextInt();
+        System.out.println("Enter the elements of the array:");
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]= sc.nextInt();
         }
-
-        System.out.print("Enter the index for deletion: ");
-        int loc = scanner.nextInt();
-
-
-
-        if (loc < 0 || loc >= totalElement) {
-            System.out.println("Invalid index for deletion. Please enter a valid index.");
-        } else {
-            int[] arr1 = new int[totalElement - 1];
-
-            for (int i = 0, j = 0; i < totalElement; i++) {
-                if (i == loc) {
-                    continue;
-                } else {
-                    arr1[j++] = arr[i];
-                }
-            }
-
-            System.out.print("Array after deletion: ");
-            for (int i = 0; i < arr1.length; i++) {
-                System.out.print(arr1[i] + " ");
-            }
+        myArg(arr);
+        String name= "Div";
+        myArg(name);
+    }
+ 
+    public static void myArg(int...a){
+        System.out.println("The total number of arguments are:"+a.length);
+        int i; 
+ 
+        int max = a[0]; 
+ 
+        for (i = 1; i < a.length; i++) {
+            if (a[i] > max) 
+                max = a[i]; 
         }
+        System.out.println("The maximum of the given numbers is:"+max); 
+        int sum = 0;
+        for (int b:a){
+            sum = sum + b;
+        }
+        System.out.println("Sum of the elements is ="+sum);
     }
 }
